@@ -1,79 +1,53 @@
-# sql-challenge
-Requirements
+# Data Engineering Project - README
 
-Jupyter Notebook Database Connection (10 points)
-To receive all points, you must
+## Project Overview
 
-Use the SQLAlchemy create_engine() function to connect to your SQLite database (1 point)
-Use the SQLAlchemy automap_base() function to reflect your tables into classes (3 points)
-Save references to the classes named station and measurement (4 points)
-Link Python to the database by creating a SQLAlchemy session (1 point)
-Close your session at the end of your notebook (1 point)
+This Data Engineering project involves creating table schemas for six CSV files, specifying data types, primary keys, foreign keys, and other constraints. The task also includes importing data into SQL tables and performing various data analysis queries. The goal is to design a well-structured database and extract meaningful insights from the data.
 
-Precipitation Analysis (16 points)
-To receive all points, you must
+## Requirements
 
-Create a query that finds the most recent date in the dataset (8/23/2017) (2 points)
-Create a query that collects only the date and precipitation for the last year of data without passing the date as a variable (4 points)
-Save the query results to a Pandas DataFrame to create date and precipitation columns (2 points)
-Sort the DataFrame by date (2 points)
-Plot the results by using the DataFrame plot method with date as the x and precipitation as the y variables (4 points)
-Use Pandas to print the summary statistics for the precipitation data (2 points)
+### 1. Database Schema Design
 
-Station Analysis (16 points)
-To receive all points, you must
+- **Create Table Schemas:**
+  - Define schemas for each of the six CSV files.
+  - Specify data types for each column.
+  - Identify and set primary keys; if a column is not unique, create a composite key using two columns.
+  - Define foreign keys to establish relationships between tables.
+  - Apply any additional constraints as needed (e.g., `NOT NULL`, `UNIQUE`).
 
-Design a query that correctly finds the number of stations in the dataset (9) (2 points)
-Design a query that correctly lists the stations and observation counts in descending order and finds the most active station (USC00519281) (2 points)
-Design a query that correctly finds the min, max, and average temperatures for the most active station (USC00519281) (3 points)
-Design a query to get the previous 12 months of temperature observation (TOBS) data that filters by the station that has the greatest number of observations (3 points)
-Save the query results to a Pandas DataFrame (2 points)
-Correctly plot a histogram with bins=12 for the last year of data using tobs as the column to count. (4 points)
+- **Create Tables:**
+  - Ensure that tables are created in the correct order to manage foreign key dependencies.
 
-API SQLite Connection & Landing Page (10 points)
-To receive all points, your Flask application must
+### 2. Data Import
 
-Correctly generate the engine to the correct sqlite file (2 points)
-Use automap_base() and reflect the database schema (2 points)
-Correctly save references to the tables in the sqlite file (measurement and station) (2 points)
-Correctly create and binds the session between the python app and database (2 points)
-Display the available routes on the landing page (2 points)
+- **Import CSV Files:**
+  - Import data from each CSV file into its corresponding SQL table.
+  - Verify that data is correctly loaded and that constraints are enforced.
 
-API Static Routes (15 points)
-To receive all points, your Flask application must include
-A precipitation route that:
-Returns json with the date as the key and the value as the precipitation (3 points)
-Only returns the jsonified precipitation data for the last year in the database (3 points)
-A stations route that:
-Returns jsonified data of all of the stations in the database (3 points)
-A tobs route that:
-Returns jsonified data for the most active station (USC00519281) (3 points)
-Only returns the jsonified data for the last year of data (3 points)
+### 3. Data Analysis Queries
 
-API Dynamic Route (15 points)
-To receive all points, your Flask application must include
-A start route that:
-Accepts the start date as a parameter from the URL (2 points)
-Returns the min, max, and average temperatures calculated from the given start date to the end of the dataset (4 points)
-A start/end route that:
-Accepts the start and end dates as parameters from the URL (3 points)
-Returns the min, max, and average temperatures calculated from the given start date to the given end date (6 points)
+Perform the following SQL queries to analyze the data:
 
-Coding Conventions and Formatting (8 points)
-To receive all points, your code must
+- **Employee Information:**
+  - List the employee number, last name, first name, sex, and salary of each employee.
 
-Place imports at the top of the file, just after any module comments and docstrings, and before module globals and constants. (2 points)
-Name functions and variables with lowercase characters, with words separated by underscores. (2 points)
-Follow DRY (Don't Repeat Yourself) principles, creating maintainable and reusable code. (2 points)
-Use concise logic and creative engineering where possible. (2 points)
+- **Employees Hired in 1986:**
+  - List the first name, last name, and hire date of employees hired in 1986.
 
-Deployment and Submission (6 points)
-To receive all points, you must
-Submit a link to a GitHub repository that’s cloned to your local machine and contains your files. (2 points)
-Use the command line to add your files to the repository. (2 points)
-Include appropriate commit messages in your files. (2 points)
+- **Department Managers:**
+  - List the manager of each department, including department number, department name, employee number, last name, and first name.
 
-Comments (4 points)
-To receive all points, your code must
+- **Employee Departments:**
+  - List the department number for each employee along with their employee number, last name, first name, and department name.
 
-Be well commented with concise, relevant notes that other developers can understand. (4 points)
+- **Specific Employees:**
+  - List the first name, last name, and sex of employees whose first name is "Hercules" and whose last name starts with the letter "B."
+
+- **Sales Department Employees:**
+  - List each employee in the Sales department, including their employee number, last name, and first name.
+
+- **Sales and Development Departments:**
+  - List each employee in the Sales and Development departments, including their employee number, last name, first name, and department name.
+
+- **Employee Last Name Frequency:**
+  - List the frequency counts, in descending order, of all employee last names.
