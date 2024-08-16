@@ -1,4 +1,4 @@
-# Data Engineering Project - README
+# SQL Challenge
 
 ## Project Overview
 
